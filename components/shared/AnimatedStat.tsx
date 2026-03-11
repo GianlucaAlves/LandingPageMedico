@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { CSSProperties } from "react";
 
 type AnimatedStatProps = {
   value: number;
@@ -92,11 +91,6 @@ export default function AnimatedStat({
       ? `${value}:${value}`
       : `${prefix}${value.toLocaleString("pt-BR")}`;
 
-  const labelTypingStyle = {
-    ["--typing-chars" as string]: Math.max(label.length, 8),
-    ["--typing-delay" as string]: `${(delay + 420) / 1000}s`,
-  } as CSSProperties;
-
   return (
     <article
       ref={rootRef}
@@ -106,12 +100,7 @@ export default function AnimatedStat({
       <div className="hero-counter" aria-hidden="true">
         {formattedValue}
       </div>
-      <p
-        className="hero-stats-label hero-stats-label-typing"
-        style={labelTypingStyle}
-      >
-        {label}
-      </p>
+      <p className="hero-stats-label">{label}</p>
     </article>
   );
 }

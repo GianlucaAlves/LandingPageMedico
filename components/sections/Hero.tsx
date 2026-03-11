@@ -103,7 +103,7 @@ export default function Hero() {
                 sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 580px, 620px"
               />
             </div>
-            <aside className="hero-stats-panel mt-5 w-full max-w-40 sm:ml-auto lg:absolute lg:-right-24 lg:top-18 lg:mt-0 lg:w-40 xl:-right-28 xl:w-44">
+            <aside className="hero-stats-panel mt-5 w-full max-w-40 mx-auto sm:mx-0 sm:ml-auto lg:absolute lg:-right-24 lg:top-18 lg:mt-0 lg:w-40 xl:-right-28 xl:w-44">
               {heroStats.map((stat) => (
                 <AnimatedStat
                   key={stat.label}

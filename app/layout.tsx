@@ -51,7 +51,7 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${headingFont.variable} ${bodyFont.variable}`}
     >
-      <head>
+      <body className="bg-(--background) font-body text-(--foreground) antialiased">
         {structuredData.map((item, index) => (
           <script
             key={`jsonld-${index}`}
@@ -59,8 +59,6 @@ export default function RootLayout({
             dangerouslySetInnerHTML={{ __html: JSON.stringify(item) }}
           />
         ))}
-      </head>
-      <body className="bg-(--background) font-body text-(--foreground) antialiased">
         <Navbar />
         {children}
         <WhatsAppButton />
