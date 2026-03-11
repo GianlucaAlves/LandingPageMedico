@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 
 const navLinks = [
   { href: "#hero", label: "Inicio" },
+  { href: "#tratamentos", label: "Condicoes" },
   { href: "#sobre", label: "Sobre" },
-  { href: "#tratamentos", label: "Tratamentos" },
   { href: "#exames", label: "Exames" },
   { href: "#faq", label: "FAQ" },
   { href: "#contato", label: "Contato" },
@@ -15,12 +15,15 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-[rgba(232,221,210,0.9)] bg-[rgba(255,253,252,0.92)] backdrop-blur-md">
       <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#hero" className="flex flex-col leading-none text-slate-900">
+        <a
+          href="#hero"
+          className="flex flex-col leading-none text-[var(--foreground)]"
+        >
           <span className="font-heading text-3xl">Dr. Daniel Alves</span>
-          <span className="mt-1 text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">
-            Proctologia
+          <span className="mt-1 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--primary)]">
+            Clinico geral e proctologista
           </span>
         </a>
 
@@ -29,14 +32,14 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-slate-600 transition hover:text-blue-700"
+              className="text-sm font-medium text-[var(--muted)] transition hover:text-[var(--primary)]"
             >
               {link.label}
             </a>
           ))}
           <a
             href="#contato"
-            className="rounded-full bg-blue-700 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-800"
+            className="rounded-full bg-[var(--cta)] px-5 py-2.5 text-sm font-semibold text-white transition hover:brightness-105"
           >
             Agendar consulta
           </a>
@@ -44,7 +47,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-700 md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border)] text-[var(--foreground)] md:hidden"
           aria-label="Abrir menu"
           aria-expanded={isOpen}
           onClick={() => setIsOpen((value) => !value)}
@@ -59,13 +62,13 @@ export default function Navbar() {
       </nav>
 
       {isOpen ? (
-        <div className="border-t border-slate-200 bg-white md:hidden">
+        <div className="border-t border-[var(--border)] bg-[var(--surface)] md:hidden">
           <div className="mx-auto flex max-w-7xl flex-col px-4 py-4 sm:px-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-xl px-3 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:text-blue-700"
+                className="rounded-xl px-3 py-3 text-sm font-medium text-[var(--foreground)] transition hover:bg-[rgba(143,175,163,0.14)] hover:text-[var(--primary)]"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}

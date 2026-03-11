@@ -5,7 +5,6 @@ import FAQ from "@/components/sections/FAQ";
 import Hero from "@/components/sections/Hero";
 import Localizacao from "@/components/sections/Localizacao";
 import Rodape from "@/components/sections/Rodape";
-import SinaisAlerta from "@/components/sections/SinaisAlerta";
 import SobreMedico from "@/components/sections/SobreMedico";
 import Tratamentos from "@/components/sections/Tratamentos";
 
@@ -13,9 +12,8 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <SobreMedico />
       <Tratamentos />
-      <SinaisAlerta />
+      <SobreMedico />
       <Exames />
       <Depoimentos />
       <FAQ />

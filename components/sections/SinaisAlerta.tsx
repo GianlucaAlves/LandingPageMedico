@@ -11,11 +11,11 @@ const sinais = [
 
 export default function SinaisAlerta() {
   return (
-    <section className="bg-white py-20 sm:py-24">
+    <section className="bg-[var(--background)] py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Quando procurar ajuda"
-          title="Sinais de alerta que merecem avaliacao de um proctologista."
+          title="Sinais de alerta que merecem avaliacao clinica e proctologica."
           description="Nem todo sintoma e grave, mas ignorar sinais persistentes atrasa o diagnostico e pode piorar o tratamento."
         />
 
@@ -23,10 +23,12 @@ export default function SinaisAlerta() {
           {sinais.map((sinal) => (
             <div
               key={sinal}
-              className="flex gap-4 rounded-3xl border border-amber-200 bg-amber-50 px-5 py-5"
+              className="flex gap-4 rounded-3xl border border-[rgba(201,169,138,0.45)] bg-[rgba(201,169,138,0.12)] px-5 py-5"
             >
-              <span className="text-xl text-amber-700">!</span>
-              <p className="text-base leading-7 text-slate-700">{sinal}</p>
+              <span className="text-xl text-[var(--accent)]">!</span>
+              <p className="text-base leading-7 text-[var(--foreground)]">
+                {sinal}
+              </p>
             </div>
           ))}
         </div>

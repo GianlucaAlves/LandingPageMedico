@@ -1,67 +1,74 @@
 @import "tailwindcss";
 
 :root {
-	--background: #ffffff;
-	--foreground: #1f2937;
-	--primary: #1e40af;
-	--primary-soft: #dbeafe;
-	--muted: #64748b;
-	--surface: #f8fafc;
-	--font-heading: "Cormorant Garamond", serif;
-	--font-body: "Manrope", sans-serif;
+  --background: #faf6f1;
+  --foreground: #24323a;
+  --primary: #5e7c8a;
+  --secondary: #8fafa3;
+  --accent: #c9a98a;
+  --muted: #6b7a83;
+  --surface: #fffdfc;
+  --border: #e8ddd2;
+  --cta: #4f6fae;
+  --font-heading: "Cormorant Garamond", serif;
+  --font-body: "Manrope", sans-serif;
 }
 
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-	background: var(--background);
-	color: var(--foreground);
-	font-family: var(--font-body);
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
 }
 
 .font-heading {
-	font-family: var(--font-heading);
+  font-family: var(--font-heading);
 }
 
 .font-body {
-	font-family: var(--font-body);
+  font-family: var(--font-body);
 }
 
 section {
-	scroll-margin-top: 88px;
+  scroll-margin-top: 88px;
 }
 
 a,
 button {
-	transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease,
-		transform 180ms ease, box-shadow 180ms ease;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
 }
 
 ::selection {
-	background: rgba(30, 64, 175, 0.16);
+  background: rgba(94, 124, 138, 0.2);
 }
 
 @theme inline {
-	--animate-accordion-down: accordion-down 0.2s ease-out;
-	--animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
 }
 
 @keyframes accordion-down {
-	from {
-		height: 0;
-	}
-	to {
-		height: var(--radix-accordion-content-height);
-	}
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
 }
 
 @keyframes accordion-up {
-	from {
-		height: var(--radix-accordion-content-height);
-	}
-	to {
-		height: 0;
-	}
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
 }

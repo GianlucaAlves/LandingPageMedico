@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 
@@ -21,11 +20,12 @@ const bodyFont = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Dr. Daniel Alves | Proctologia em Jacarei-SP",
+  title: "Dr. Daniel Alves | Clinico geral e proctologista em Jacarei-SP",
   description:
-    "Landing page profissional para consultas, exames e tratamentos em Proctologia com atendimento acolhedor em Jacarei-SP.",
+    "Landing page profissional para consultas em clinica geral e proctologia, exames e tratamentos com atendimento acolhedor em Jacarei-SP.",
   keywords: [
     "proctologista em Jacarei",
+    "clinico geral em Jacarei",
     "proctologia",
     "hemorroida",
     "fissura anal",
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
     "cirurgia geral",
   ],
   openGraph: {
-    title: "Dr. Daniel Alves | Proctologia em Jacarei-SP",
+    title: "Dr. Daniel Alves | Clinico geral e proctologista em Jacarei-SP",
     description:
-      "Consultas, exames e tratamentos em Proctologia com foco em acolhimento, diagnostico preciso e acompanhamento especializado.",
+      "Consultas em clinica geral e proctologia, exames e tratamentos com foco em acolhimento, diagnostico preciso e acompanhamento especializado.",
     type: "website",
     locale: "pt_BR",
   },
@@ -47,7 +47,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${headingFont.variable} ${bodyFont.variable}`}>
+    <html
+      lang="pt-BR"
+      className={`${headingFont.variable} ${bodyFont.variable}`}
+    >
       <head>
         {structuredData.map((item, index) => (
           <script
@@ -57,7 +60,7 @@ export default function RootLayout({
           />
         ))}
       </head>
-      <body className="bg-white font-body text-slate-900 antialiased">
+      <body className="bg-[var(--background)] font-body text-[var(--foreground)] antialiased">
         <Navbar />
         {children}
         <WhatsAppButton />

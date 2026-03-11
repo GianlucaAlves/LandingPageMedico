@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { medico } from "@/data/medico";
 import { buildWhatsAppUrl } from "@/lib/utils";
@@ -12,7 +12,7 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noreferrer"
       aria-label="Agendar consulta pelo WhatsApp"
-      className="fixed bottom-4 right-4 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-[0_18px_40px_rgba(16,185,129,0.35)] transition hover:scale-105 hover:bg-emerald-600 md:hidden"
+      className="fixed bottom-4 right-4 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[var(--cta)] text-white shadow-[0_18px_40px_rgba(79,111,174,0.32)] transition hover:scale-105 hover:brightness-105 md:hidden"
     >
       <span className="text-2xl">W</span>
     </a>
