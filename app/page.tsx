@@ -1,4 +1,3 @@
-import CTA from "@/components/sections/CTA";
 import Depoimentos from "@/components/sections/Depoimentos";
 import Exames from "@/components/sections/Exames";
 import FAQ from "@/components/sections/FAQ";
@@ -17,7 +16,6 @@ export default function Home() {
       <Exames />
       <Depoimentos />
       <FAQ />
-      <CTA />
       <Localizacao />
       <Rodape />
     </main>

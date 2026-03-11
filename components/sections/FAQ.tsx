@@ -4,33 +4,6 @@ import { useMemo, useState } from "react";
 
 import SectionHeader from "@/components/shared/SectionHeader";
 import { faq, faqCategories, type FaqCategory } from "@/data/faq";
-import { medico } from "@/data/medico";
-import { buildWhatsAppUrl } from "@/lib/utils";
-
-function CategoryIcon({ icon }: { icon: string }) {
-  const common = "h-5 w-5 stroke-[1.8]";
-
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={common}>
-      {icon === "conversation" ? (
-        <path d="M5 7.5A2.5 2.5 0 0 1 7.5 5h9A2.5 2.5 0 0 1 19 7.5v5A2.5 2.5 0 0 1 16.5 15H11l-4 3v-3.2A2.5 2.5 0 0 1 5 12.5v-5Z" />
-      ) : null}
-      {icon === "search" ? (
-        <>
-          <circle cx="10.5" cy="10.5" r="4.5" />
-          <path d="M14 14l4.5 4.5" />
-        </>
-      ) : null}
-      {icon === "privacy" ? (
-        <>
-          <path d="M12 3l6 2.5v4.7c0 4-2.7 7-6 8.8-3.3-1.8-6-4.8-6-8.8V5.5L12 3Z" />
-          <path d="M9.5 11.8 11 13l3.5-3.6" />
-        </>
-      ) : null}
-      {icon === "check" ? <path d="M5 12.5 9.2 17 19 7.5" /> : null}
-    </svg>
-  );
-}
 
 function toSlug(value: string) {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, "-");
@@ -67,13 +40,17 @@ export default function FAQ() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Jornada do paciente"
-          title="Duvidas comuns antes da sua consulta"
-          description="Respostas curtas e claras para que voce entenda o que esperar, reduza a ansiedade e saiba qual o proximo passo antes de agendar."
+          title="Dúvidas comuns antes da sua consulta"
+          description="Respostas curtas e claras para que você entenda o que esperar, reduza a ansiedade e saiba qual o próximo passo antes de agendar."
           centered
         />
 
+        <p className="mt-7 text-center text-sm font-medium text-(--muted)">
+          Selecione uma aba para explorar cada etapa.
+        </p>
+
         <div
-          className="mt-8 flex gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="mt-5 flex items-end gap-5 overflow-x-auto border-b border-(--border) pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           role="tablist"
           aria-label="Categorias da FAQ"
         >
@@ -92,10 +69,10 @@ export default function FAQ() {
                 )?.pergunta;
                 if (firstQuestion) setOpenQuestion(firstQuestion);
               }}
-              className={`rounded-full border px-4 py-2 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--cta) focus-visible:ring-offset-2 focus-visible:ring-offset-(--surface) ${
+              className={`whitespace-nowrap border-b-2 px-1 py-3 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--cta) focus-visible:ring-offset-2 focus-visible:ring-offset-(--surface) ${
                 activeCategory === category.id
-                  ? "border-(--primary) bg-(--primary) text-(--surface) shadow-[0_16px_30px_rgba(94,124,138,0.18)]"
-                  : "border-(--border) bg-(--background) text-(--primary) hover:border-(--secondary)"
+                  ? "border-(--cta) text-(--foreground)"
+                  : "border-transparent text-(--muted) hover:border-(--secondary) hover:text-(--foreground)"
               }`}
             >
               {category.chip}
@@ -111,21 +88,16 @@ export default function FAQ() {
             className="mt-10"
           >
             <div className="border-b border-(--border) pb-6">
-              <div className="flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[rgba(143,175,163,0.14)] text-(--primary)">
-                  <CategoryIcon icon={activeGroup.icon} />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-(--primary)">
-                    Categoria ativa
-                  </p>
-                  <h3 className="mt-2 text-2xl font-semibold text-(--foreground)">
-                    {activeGroup.title}
-                  </h3>
-                  <p className="mt-2 max-w-3xl text-sm leading-7 text-(--muted)">
-                    {activeGroup.description}
-                  </p>
-                </div>
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-(--primary)">
+                  Categoria ativa
+                </p>
+                <h3 className="mt-2 text-2xl font-semibold text-(--foreground)">
+                  {activeGroup.title}
+                </h3>
+                <p className="mt-2 max-w-3xl text-sm leading-7 text-(--muted)">
+                  {activeGroup.description}
+                </p>
               </div>
             </div>
 
@@ -137,18 +109,29 @@ export default function FAQ() {
                 const answerId = `faq-answer-${slug}`;
 
                 return (
-                  <div key={item.pergunta} className="py-2">
+                  <div key={item.pergunta} className="py-4">
                     <button
                       id={questionId}
                       type="button"
                       aria-expanded={isOpen}
                       aria-controls={answerId}
                       onClick={() => setOpenQuestion(item.pergunta)}
-                      className="flex w-full items-center justify-between gap-4 px-1 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--cta) focus-visible:ring-inset"
+                      className={`flex w-full items-center justify-between gap-4 border-l-4 px-4 py-4 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--cta) focus-visible:ring-inset ${
+                        isOpen
+                          ? "border-l-(--cta) bg-[rgba(79,111,174,0.08)]"
+                          : "border-l-(--secondary) bg-transparent hover:bg-[rgba(94,124,138,0.06)]"
+                      }`}
                     >
-                      <span className="text-base font-semibold text-(--foreground) sm:text-lg">
-                        {item.pergunta}
-                      </span>
+                      <div>
+                        <span className="text-base font-semibold text-(--foreground) sm:text-lg">
+                          {item.pergunta}
+                        </span>
+                        <p className="mt-1 text-xs font-medium uppercase tracking-[0.12em] text-(--muted)">
+                          {isOpen
+                            ? "Clique para recolher"
+                            : "Clique para expandir"}
+                        </p>
+                      </div>
                       <span
                         className={`text-2xl leading-none text-(--primary) transition-transform duration-300 ${
                           isOpen ? "rotate-45" : "rotate-0"
@@ -170,28 +153,10 @@ export default function FAQ() {
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <div className="px-1 pb-5">
+                        <div className="border-l-4 border-l-(--cta) px-4 pb-5 pt-3">
                           <p className="max-w-3xl text-base leading-7 text-(--muted)">
                             {item.resposta}
                           </p>
-
-                          <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                            <p className="text-sm font-medium text-(--foreground)">
-                              Ainda com duvida sobre este caso? Agende sua
-                              avaliacao.
-                            </p>
-                            <a
-                              href={buildWhatsAppUrl(
-                                medico.whatsapp,
-                                `Ola, gostaria de tirar uma duvida sobre: ${item.pergunta}`,
-                              )}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="inline-flex min-h-11 items-center justify-center rounded-full bg-(--cta) px-5 py-3 text-sm font-semibold text-white transition hover:brightness-105"
-                            >
-                              Agendar avaliacao
-                            </a>
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -203,7 +168,7 @@ export default function FAQ() {
         ) : null}
 
         <div className="mt-6 text-center text-sm text-(--muted)">
-          Se preferir, voce tambem pode falar direto pelo WhatsApp sem passar
+          Se preferir, você também pode falar direto pelo WhatsApp sem passar
           por todas as perguntas.
         </div>
       </div>

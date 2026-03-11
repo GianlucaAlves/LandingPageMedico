@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 import { medico } from "@/data/medico";
-import { formatPhone } from "@/lib/utils";
+import { buildWhatsAppUrl, formatPhone } from "@/lib/utils";
 
 export default function Localizacao() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -115,13 +115,37 @@ export default function Localizacao() {
               {formatPhone(medico.whatsapp)}
             </p>
             <p className="mt-2 text-sm text-(--muted)">
-              Envie uma mensagem para tirar duvidas e solicitar agendamento.
+              Envie uma mensagem para tirar dúvidas e solicitar agendamento.
             </p>
+          </div>
+
+          <div className="mt-5 rounded-3xl bg-(--foreground) px-5 py-6 text-white">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/75">
+              Agendamento rápido
+            </p>
+            <h3 className="mt-2 text-2xl font-semibold leading-tight">
+              Agende sua consulta com orientação clara desde o primeiro contato.
+            </h3>
+            <p className="mt-2 text-sm leading-7 text-white/85">
+              Atendimento em {medico.cidade} com privacidade, acolhimento e foco
+              no tratamento adequado para o seu caso.
+            </p>
+            <a
+              href={buildWhatsAppUrl(
+                medico.whatsapp,
+                "Olá, gostaria de agendar uma consulta",
+              )}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-5 inline-flex items-center justify-center rounded-full bg-(--surface) px-6 py-3 text-sm font-semibold text-(--foreground) transition hover:brightness-95"
+            >
+              Agendar pelo WhatsApp
+            </a>
           </div>
 
           <p className="mt-5 text-sm text-(--muted)">
             Use as setas ou as bolinhas para visualizar o ambiente do
-            consultorio.
+            consultório.
           </p>
         </div>
       </div>

@@ -19,7 +19,7 @@ export const faqCategories: {
     title: "Antes da consulta",
     icon: "conversation",
     description:
-      "Orientacoes iniciais para chegar mais tranquilo ao atendimento.",
+      "Orientações iniciais para chegar mais tranquilo ao atendimento.",
   },
   {
     id: "sintomas",
@@ -33,14 +33,14 @@ export const faqCategories: {
     chip: "Exames",
     title: "Exames",
     icon: "search",
-    description: "Quando os exames entram e como ajudam no diagnostico.",
+    description: "Quando os exames entram e como ajudam no diagnóstico.",
   },
   {
     id: "tratamentos",
     chip: "Tratamento e recuperacao",
-    title: "Tratamentos e recuperacao",
+    title: "Tratamentos e recuperação",
     icon: "check",
-    description: "As proximas etapas depois que o quadro e identificado.",
+    description: "As próximas etapas depois que o quadro é identificado.",
   },
 ];
 
@@ -49,49 +49,49 @@ export const faq: FaqItem[] = [
     categoria: "consulta",
     pergunta: "O que levar para a primeira consulta?",
     resposta:
-      "Leve exames anteriores, a lista de remedios em uso e anote quando os sintomas comecaram, o que piora e o que melhora o desconforto.",
+      "Leve exames anteriores, a lista de remédios em uso e anote quando os sintomas começaram, o que piora e o que melhora o desconforto.",
   },
   {
     categoria: "consulta",
     pergunta: "Posso marcar consulta mesmo sem exames recentes?",
     resposta:
-      "Sim. Muitas vezes a consulta inicial e justamente o momento de entender o quadro e definir se ha necessidade de exames complementares.",
+      "Sim. Muitas vezes a consulta inicial é justamente o momento de entender o quadro e definir se há necessidade de exames complementares.",
   },
   {
     categoria: "sintomas",
-    pergunta: "Quando um sintoma merece investigacao?",
+    pergunta: "Quando um sintoma merece investigação?",
     resposta:
-      "Sangramento, dor ao evacuar, mudanca persistente no habito intestinal, secrecao anal ou perda de peso sem explicacao sao sinais que merecem avaliacao.",
+      "Sangramento, dor ao evacuar, mudança persistente no hábito intestinal, secreção anal ou perda de peso sem explicação são sinais que merecem avaliação.",
   },
   {
     categoria: "sintomas",
-    pergunta: "A consulta e feita com privacidade?",
+    pergunta: "A consulta é feita com privacidade?",
     resposta:
-      "Sim. O atendimento e conduzido com escuta, explicacao clara e respeito ao seu conforto em cada etapa do exame clinico.",
+      "Sim. O atendimento é conduzido com escuta, explicação clara e respeito ao seu conforto em cada etapa do exame clínico.",
   },
   {
     categoria: "exames",
     pergunta: "Todo paciente precisa fazer exame no primeiro dia?",
     resposta:
-      "Nao. A indicacao depende dos sintomas, do historico e da necessidade real. Quando um exame e recomendado, tudo e explicado antes.",
+      "Não. A indicação depende dos sintomas, do histórico e da necessidade real. Quando um exame é recomendado, tudo é explicado antes.",
   },
   {
     categoria: "exames",
-    pergunta: "Os exames sao sempre dolorosos?",
+    pergunta: "Os exames são sempre dolorosos?",
     resposta:
-      "Nao necessariamente. Eles sao conduzidos com tecnica e orientacao para reduzir desconforto, sempre respeitando o quadro e o limite do paciente.",
+      "Não necessariamente. Eles são conduzidos com técnica e orientação para reduzir desconforto, sempre respeitando o quadro e o limite do paciente.",
   },
   {
     categoria: "tratamentos",
     pergunta: "Hemorroida sempre precisa de cirurgia?",
     resposta:
-      "Nao. Muitos casos respondem bem a mudancas de habitos, medicamentos e procedimentos ambulatoriais. A cirurgia e indicada apenas quando necessario.",
+      "Não. Muitos casos respondem bem a mudanças de hábitos, medicamentos e procedimentos ambulatoriais. A cirurgia é indicada apenas quando necessário.",
   },
   {
     categoria: "tratamentos",
-    pergunta: "Atendem apenas casos cirurgicos?",
+    pergunta: "Atendem apenas casos cirúrgicos?",
     resposta:
-      "Nao. O acompanhamento inclui prevencao, diagnostico, tratamentos clinicos, exames e indicacao cirurgica apenas quando apropriado para cada caso.",
+      "Não. O acompanhamento inclui prevenção, diagnóstico, tratamentos clínicos, exames e indicação cirúrgica apenas quando apropriado para cada caso.",
   },
 ];
 

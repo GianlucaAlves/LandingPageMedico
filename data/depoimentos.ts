@@ -3,28 +3,56 @@ export interface Depoimento {
   nome: string;
   avaliacao: number;
   texto: string;
+  foto: string;
 }
 
 export const depoimentos: Depoimento[] = [
   {
-    id: "ana",
-    nome: "Ana Paula S.",
+    id: "leticia",
+    nome: "Leticia Zanholo",
     avaliacao: 5,
+    foto: "/leticia.webp",
     texto:
-      "Fui atendida com muito respeito e clareza. Recebi explicacoes detalhadas e um tratamento que trouxe alivio ja nas primeiras semanas.",
+      "Excelente medico! Um profissional humano que ajuda o próximo e exerce a profissão como ela deve ser exercida: cuidado de pessoas. Obrigada doutor",
   },
   {
     id: "marcos",
-    nome: "Marcos R.",
+    nome: "Marcos Ronaldo",
     avaliacao: 5,
+    foto: "/marcos.png",
     texto:
-      "Consultorio organizado, atendimento pontual e excelente acompanhamento no pos-consulta. Profissional extremamente atencioso.",
+      "Muito atencioso! Ótimo profissional! Recomendo",
   },
   {
     id: "luciana",
-    nome: "Luciana M.",
+    nome: "Luciana Marques",
     avaliacao: 5,
+    foto: "/luciana.png",
     texto:
-      "Eu tinha muito receio de passar por consulta proctologica, mas o atendimento foi humano, discreto e muito tranquilizador.",
+      "Pontos positivos: tudo mesmo , ele descobriu exatamente o que eu tinha, estou em tratamento e hoje me sinto muito bem.",
+  },
+  {
+    id: "luiza",
+    nome: "Luiza Serrafiori",
+    avaliacao: 5,
+    foto: "/luiza.jpeg",
+    texto:
+      "Ótimo médico.",
+  },
+  {
+    id: "claudio",
+    nome: "Claúdio Manfredini",
+    avaliacao: 5,
+    foto: "/claudio.webp",
+    texto:
+      "Confiável, atencioso, profissional, competente.",
+  },
+  {
+    id: "felipe",
+    nome: "Felipe Antonio",
+    avaliacao: 5,
+    foto: "/felipe.jpg",
+    texto:
+      "Por todas as qualificações acima, confiável, pronto nas necessidades.",
   },
 ];

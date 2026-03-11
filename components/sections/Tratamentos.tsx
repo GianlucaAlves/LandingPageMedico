@@ -19,13 +19,29 @@ export default function Tratamentos() {
     [activeId],
   );
 
+  const sinaisOrdenados = useMemo(() => {
+    if (!activeTratamento) {
+      return [];
+    }
+
+    const nivelPeso = {
+      Leve: 0,
+      Atenção: 1,
+      Grave: 2,
+    } as const;
+
+    return [...activeTratamento.sinais].sort(
+      (a, b) => nivelPeso[a.nivel] - nivelPeso[b.nivel],
+    );
+  }, [activeTratamento]);
+
   return (
     <section id="tratamentos" className="bg-(--surface) py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="Condicoes atendidas"
-          title="Sintomas e condicoes que merecem atencao logo no inicio"
-          description="Comece pela queixa que mais se parece com o que voce esta sentindo. Em poucos segundos, a secao deve ajudar voce a se reconhecer, entender o que isso pode indicar e saber qual atitude tomar agora."
+          eyebrow="Condições atendidas"
+          title="Sintomas e condições que merecem atenção logo no início"
+          description="Comece pela queixa que mais se parece com o que você está sentindo. Em poucos segundos, a seção ajuda você a se reconhecer, entender o que isso pode indicar e saber qual atitude tomar agora."
           centered
         />
 
@@ -44,8 +60,8 @@ export default function Tratamentos() {
                 }}
                 className={`min-h-12 rounded-2xl border px-4 py-3 text-left text-sm font-semibold transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--cta) focus-visible:ring-offset-2 focus-visible:ring-offset-(--surface) ${
                   activeTratamento?.queixa === destaque
-                    ? "border-(--primary) bg-(--primary) text-(--surface) shadow-[0_16px_30px_rgba(94,124,138,0.22)]"
-                    : "border-(--border) bg-[rgba(143,175,163,0.1)] text-(--primary) hover:border-(--secondary)"
+                    ? "border-(--cta) bg-(--cta) text-(--surface) shadow-[0_16px_30px_rgba(79,111,174,0.24)]"
+                    : "border-(--border) bg-(--surface) text-(--foreground) hover:border-(--primary)"
                 }`}
               >
                 {destaque}
@@ -56,10 +72,10 @@ export default function Tratamentos() {
 
         {activeTratamento ? (
           <div
-            className="mt-12 overflow-hidden rounded-4xl border border-(--border) bg-(--background) shadow-[0_22px_55px_rgba(36,50,58,0.07)]"
+            className="mt-12 overflow-hidden rounded-4xl border border-(--border) bg-(--surface) shadow-[0_22px_55px_rgba(36,50,58,0.07)]"
             aria-live="polite"
           >
-            <div className="border-b border-(--border) bg-[linear-gradient(135deg,rgba(143,175,163,0.12),rgba(94,124,138,0.08))] px-6 py-5 sm:px-8">
+            <div className="border-b border-(--border) bg-[linear-gradient(135deg,rgba(79,111,174,0.08),rgba(94,124,138,0.06))] px-6 py-5 sm:px-8">
               <div className="mb-4 inline-flex rounded-full bg-(--surface) px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-(--primary)">
                 Queixa ativa: {activeTratamento.queixa}
               </div>
@@ -87,50 +103,27 @@ export default function Tratamentos() {
                 <p className="mt-4 max-w-3xl text-base leading-8 text-(--muted)">
                   {activeTratamento.descricao}
                 </p>
-
-                <div className="mt-6 flex flex-col gap-4 rounded-2xl bg-[rgba(143,175,163,0.12)] px-5 py-5 sm:flex-row sm:items-center sm:justify-between">
-                  <div>
-                    <p className="text-sm font-semibold text-(--foreground)">
-                      Quer entender esse sintoma com seguranca?
-                    </p>
-                    <p className="mt-1 text-sm text-(--muted)">
-                      Avaliacao individual, com privacidade e orientacao clara
-                      sobre o proximo passo.
-                    </p>
-                  </div>
-                  <a
-                    href={buildWhatsAppUrl(
-                      medico.whatsapp,
-                      `Ola, gostaria de agendar avaliacao sobre ${activeTratamento.queixa}`,
-                    )}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-full bg-(--cta) px-6 py-3 text-sm font-semibold text-white shadow-[0_16px_32px_rgba(79,111,174,0.18)] transition hover:brightness-105"
-                  >
-                    Agendar avaliacao proctologica
-                  </a>
-                </div>
               </section>
 
               <section className="rounded-3xl border border-(--border) bg-(--surface) p-6">
                 <p className="text-sm font-semibold uppercase tracking-[0.24em] text-(--primary)">
-                  Sinais comuns
+                  Sinais por grau de preocupação
                 </p>
                 <ul
                   className="mt-5 space-y-4"
                   aria-label="Sinais comuns relacionados"
                 >
-                  {activeTratamento.sinais.map((sinal) => (
+                  {sinaisOrdenados.map((sinal) => (
                     <li
                       key={sinal.texto}
-                      className="flex items-start gap-4 rounded-2xl bg-[rgba(201,169,138,0.12)] px-4 py-4"
+                      className="flex items-start gap-4 rounded-2xl bg-[rgba(79,111,174,0.08)] px-4 py-4"
                     >
                       <span
                         className={`mt-0.5 inline-flex min-w-24 justify-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] ${
-                          sinal.nivel === "Importante"
-                            ? "bg-[rgba(201,169,138,0.24)] text-(--foreground)"
-                            : sinal.nivel === "Atencao"
-                              ? "bg-[rgba(143,175,163,0.22)] text-(--primary)"
+                          sinal.nivel === "Grave"
+                            ? "bg-(--cta) text-(--surface)"
+                            : sinal.nivel === "Atenção"
+                              ? "bg-[rgba(94,124,138,0.22)] text-(--foreground)"
                               : "bg-(--surface) text-(--muted)"
                         }`}
                       >
@@ -154,47 +147,39 @@ export default function Tratamentos() {
                 Como a consulta ajuda
               </p>
               <h3 className="mt-3 text-2xl font-semibold text-(--foreground) sm:text-3xl">
-                Avaliacao individual para entender o sintoma com seguranca e
-                definir o proximo passo.
+                Avaliação individual para entender o sintoma com segurança e
+                definir o próximo passo.
               </h3>
               <p className="mt-4 text-base leading-8 text-(--muted)">
-                Na consulta, o medico escuta sua historia, entende a intensidade
-                dos sintomas, examina com cuidado quando necessario e orienta
-                com clareza se o melhor caminho e tratamento clinico, exames ou
-                acompanhamento mais especifico.
+                Na consulta, o médico escuta sua história, entende a intensidade
+                dos sintomas, examina com cuidado quando necessário e orienta
+                com clareza se o melhor caminho é tratamento clínico, exames ou
+                acompanhamento mais específico.
               </p>
             </div>
 
             <div className="mt-6 flex flex-col gap-4 rounded-3xl border border-(--border) bg-(--surface) px-5 py-5 lg:flex-row lg:items-center lg:justify-between">
               <div className="max-w-2xl">
                 <p className="text-sm font-semibold text-(--foreground)">
-                  Se voce se reconheceu nesses sinais, nao precisa decidir
+                  Se você se reconheceu nesses sinais, não precisa decidir
                   sozinho.
                 </p>
                 <p className="mt-1 text-sm text-(--muted)">
-                  Atendimento com privacidade, acolhimento e orientacao clara
+                  Atendimento com privacidade, acolhimento e orientação clara
                   sobre exames, tratamento e o que fazer agora.
                 </p>
               </div>
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <a
-                  href={buildWhatsAppUrl(
-                    medico.whatsapp,
-                    `Ola, gostaria de entender com seguranca sintomas relacionados a ${activeTratamento.queixa}`,
-                  )}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded-full bg-(--cta) px-6 py-3 text-sm font-semibold text-white shadow-[0_16px_32px_rgba(79,111,174,0.18)] transition hover:brightness-105"
-                >
-                  Quero entender esse sintoma com seguranca
-                </a>
-                <a
-                  href="#contato"
-                  className="inline-flex items-center justify-center rounded-full border border-(--border) px-6 py-3 text-sm font-semibold text-(--foreground) transition hover:border-(--primary) hover:text-(--primary)"
-                >
-                  Ver local e contato
-                </a>
-              </div>
+              <a
+                href={buildWhatsAppUrl(
+                  medico.whatsapp,
+                  `Olá, gostaria de entender com segurança sintomas relacionados a ${activeTratamento.queixa}`,
+                )}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-full bg-(--cta) px-6 py-3 text-sm font-semibold text-white shadow-[0_16px_32px_rgba(79,111,174,0.18)] transition hover:brightness-105"
+              >
+                Quero entender esse sintoma com segurança
+              </a>
             </div>
           </div>
         ) : null}

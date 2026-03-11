@@ -50,11 +50,6 @@ button {
   background: rgba(94, 124, 138, 0.2);
 }
 
-@theme inline {
-  --animate-accordion-down: accordion-down 0.2s ease-out;
-  --animate-accordion-up: accordion-up 0.2s ease-out;
-}
-
 @keyframes accordion-down {
   from {
     height: 0;
@@ -70,5 +65,129 @@ button {
   }
   to {
     height: 0;
+  }
+}
+
+@keyframes hero-panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-digit-roll {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(var(--digit-end) * -1em));
+  }
+}
+
+@keyframes hero-label-typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: calc(var(--typing-chars) * 1ch);
+  }
+}
+
+@keyframes hero-label-caret {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.hero-stats-panel {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 1.15rem;
+  background: rgba(217, 223, 229, 0.96);
+  box-shadow: 0 20px 46px rgba(36, 50, 58, 0.14);
+  backdrop-filter: blur(10px);
+}
+
+.hero-stats-row {
+  padding: 1.35rem 1rem 1.2rem;
+  text-align: center;
+  animation: hero-panel-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-stats-row + .hero-stats-row {
+  border-top: 1px solid rgba(94, 124, 138, 0.24);
+}
+
+.hero-counter {
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: #24323a;
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 4vw, 3.25rem);
+  font-weight: 500;
+  font-variant-numeric: lining-nums tabular-nums;
+  line-height: 0.92;
+}
+
+.hero-stats-label {
+  margin-top: 0.45rem;
+  color: rgba(36, 50, 58, 0.64);
+  font-size: 0.9rem;
+  line-height: 1.25;
+}
+
+.hero-stats-label-typing {
+  --typing-chars: 16;
+  --typing-delay: 0s;
+  position: relative;
+  display: inline-block;
+  width: 0;
+  max-width: calc(var(--typing-chars) * 1ch);
+  overflow: hidden;
+  white-space: nowrap;
+  animation: hero-label-typing 1.1s steps(var(--typing-chars))
+    var(--typing-delay) forwards;
+}
+
+.hero-stats-label-typing::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0.05em;
+  width: 1px;
+  height: 1.1em;
+  background: rgba(36, 50, 58, 0.55);
+  animation: hero-label-caret 0.8s step-end infinite;
+}
+
+@media (max-width: 1023px) {
+  .hero-stats-panel {
+    max-width: 14rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-stats-row {
+    animation: none !important;
+  }
+
+  .hero-stats-label-typing {
+    width: auto;
+    max-width: none;
+    animation: none !important;
+  }
+
+  .hero-stats-label-typing::after {
+    display: none;
   }
 }

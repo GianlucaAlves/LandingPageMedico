@@ -6,7 +6,7 @@ export interface Tratamento {
   resumoLeigo: string;
   icone: string;
   sinais: {
-    nivel: "Comum" | "Atencao" | "Importante";
+    nivel: "Leve" | "Atenção" | "Grave";
     texto: string;
   }[];
 }
@@ -17,22 +17,22 @@ export const tratamentos: Tratamento[] = [
     queixa: "Sangramento ao evacuar",
     titulo: "Hemorroidas",
     descricao:
-      "Esse quadro pode estar relacionado a hemorroidas, que costumam causar sangramento, incomodo local e piora ao evacuar. A confirmacao depende de avaliacao individual.",
+      "Esse quadro pode estar relacionado a hemorroidas, que costumam causar sangramento, incômodo local e piora ao evacuar. A confirmação depende de avaliação individual.",
     resumoLeigo:
-      "Sangue vivo nas fezes ou no papel pode indicar irritacao ou dilatacao das veias da regiao anal.",
+      "Sangue vivo nas fezes ou no papel pode indicar irritação ou dilatação das veias da região anal.",
     icone: "hemorrhoid",
     sinais: [
       {
-        nivel: "Comum",
+        nivel: "Leve",
         texto: "Sangramento ao evacuar ou ao se limpar.",
       },
       {
-        nivel: "Atencao",
-        texto: "Coceira, inchaco ou sensacao de peso na regiao anal.",
+        nivel: "Atenção",
+        texto: "Coceira, inchaço ou sensação de peso na região anal.",
       },
       {
-        nivel: "Importante",
-        texto: "Dor ao evacuar ou presenca de nodulo doloroso.",
+        nivel: "Grave",
+        texto: "Dor ao evacuar ou presença de nódulo doloroso.",
       },
     ],
   },
@@ -41,119 +41,107 @@ export const tratamentos: Tratamento[] = [
     queixa: "Dor ao evacuar",
     titulo: "Fissura Anal",
     descricao:
-      "Esse sintoma pode estar relacionado a fissura anal, uma pequena lesao que costuma causar dor forte e ardor. A avaliacao mostra a gravidade e o melhor cuidado.",
+      "Esse sintoma pode estar relacionado à fissura anal, uma pequena lesão que costuma causar dor forte e ardor. A avaliação mostra a gravidade e o melhor cuidado.",
     resumoLeigo:
-      "Quando evacuar passa a doer muito, com ardor ou corte, vale investigar para evitar piora e recorrencia.",
+      "Quando evacuar passa a doer muito, com ardor ou corte, vale investigar para evitar piora e recorrência.",
     icone: "fissure",
     sinais: [
+      { nivel: "Grave", texto: "Dor forte durante e após evacuar." },
       {
-        nivel: "Importante",
-        texto: "Dor forte durante e apos evacuar.",
-      },
-      {
-        nivel: "Atencao",
+        nivel: "Atenção",
         texto: "Ardor anal persistente e espasmo local.",
       },
       {
-        nivel: "Comum",
+        nivel: "Leve",
         texto: "Pequena quantidade de sangue vivo nas fezes ou no papel.",
       },
     ],
   },
   {
     id: "fistula-anal",
-    queixa: "Secrecao ou inflamacao anal",
+    queixa: "Secreção ou inflamação anal",
     titulo: "Fistula Anal",
     descricao:
-      "Secrecao, inflamacao recorrente ou abscesso podem estar relacionados a fistula anal. Esse e um quadro que merece avaliacao para definir o tratamento correto.",
+      "Secreção, inflamação recorrente ou abscesso podem estar relacionados à fístula anal. Esse é um quadro que merece avaliação para definir o tratamento correto.",
     resumoLeigo:
-      "Quando ha secrecao, caroço inflamado ou infeccoes repetidas na regiao anal, a causa precisa ser investigada com cuidado.",
+      "Quando há secreção, caroço inflamado ou infecções repetidas na região anal, a causa precisa ser investigada com cuidado.",
     icone: "fistula",
     sinais: [
+      { nivel: "Grave", texto: "Saída de secreção pela região anal." },
       {
-        nivel: "Importante",
-        texto: "Saida de secrecao pela regiao anal.",
+        nivel: "Atenção",
+        texto: "Caroço, inflamação recorrente ou abscesso.",
       },
-      {
-        nivel: "Atencao",
-        texto: "Caroco, inflamacao recorrente ou abscesso.",
-      },
-      {
-        nivel: "Comum",
-        texto: "Dor local com piora ao sentar ou caminhar.",
-      },
+      { nivel: "Leve", texto: "Dor local com piora ao sentar ou caminhar." },
     ],
   },
   {
     id: "constipacao",
-    queixa: "Prisao de ventre frequente",
-    titulo: "Constipacao Intestinal",
+    queixa: "Prisão de ventre frequente",
+    titulo: "Constipação Intestinal",
     descricao:
-      "Prisao de ventre frequente pode estar ligada a constipacao intestinal e precisa ser entendida dentro da sua rotina, alimentacao e sintomas associados.",
+      "Prisão de ventre frequente pode estar ligada à constipação intestinal e precisa ser entendida dentro da sua rotina, alimentação e sintomas associados.",
     resumoLeigo:
-      "Evacuar com dificuldade por semanas, com fezes endurecidas e muito esforco, pede avaliacao para encontrar a causa.",
+      "Evacuar com dificuldade por semanas, com fezes endurecidas e muito esforço, pede avaliação para encontrar a causa.",
     icone: "intestine",
     sinais: [
       {
-        nivel: "Importante",
+        nivel: "Grave",
         texto: "Dificuldade para evacuar por mais de duas semanas.",
       },
       {
-        nivel: "Comum",
-        texto: "Fezes endurecidas e sensacao de evacuacao incompleta.",
+        nivel: "Leve",
+        texto: "Fezes endurecidas e sensação de evacuação incompleta.",
       },
       {
-        nivel: "Atencao",
+        nivel: "Atenção",
         texto:
-          "Estufamento, desconforto abdominal ou necessidade de muito esforco.",
+          "Estufamento, desconforto abdominal ou necessidade de muito esforço.",
       },
     ],
   },
   {
     id: "dor-pelvica",
-    queixa: "Dor ou pressao na regiao anal",
-    titulo: "Dor Pelvica e Anorretal",
+    queixa: "Dor ou pressão na região anal",
+    titulo: "Dor Pélvica e Anorretal",
     descricao:
-      "Dor persistente ou sensacao de pressao na regiao anal pode ter diferentes causas. A consulta ajuda a identificar o que merece tratamento e o que precisa de exame.",
+      "Dor persistente ou sensação de pressão na região anal pode ter diferentes causas. A consulta ajuda a identificar o que merece tratamento e o que precisa de exame.",
     resumoLeigo:
-      "Desconforto ao sentar, pontadas ou dor constante nao devem ser ignorados quando se repetem ou pioram.",
+      "Desconforto ao sentar, pontadas ou dor constante não devem ser ignorados quando se repetem ou pioram.",
     icone: "pelvic-pain",
     sinais: [
       {
-        nivel: "Importante",
-        texto: "Dor persistente na pelve, no anus ou no reto.",
+        nivel: "Grave",
+        texto: "Dor persistente na pelve, no ânus ou no reto.",
       },
       {
-        nivel: "Atencao",
+        nivel: "Atenção",
         texto: "Desconforto que piora ao permanecer sentado.",
       },
       {
-        nivel: "Comum",
-        texto: "Sensacao de pressao, queimacao ou pontadas recorrentes.",
+        nivel: "Leve",
+        texto: "Sensação de pressão, queimação ou pontadas recorrentes.",
       },
     ],
   },
   {
     id: "incontinencia",
     queixa: "Dificuldade para segurar fezes ou gases",
-    titulo: "Incontinencia Fecal",
+    titulo: "Incontinência Fecal",
     descricao:
-      "Quando ha dificuldade para segurar gases ou fezes, pode existir um quadro de incontinencia fecal que precisa ser avaliado com acolhimento e discricao.",
+      "Quando há dificuldade para segurar gases ou fezes, pode existir um quadro de incontinência fecal que precisa ser avaliado com acolhimento e discrição.",
     resumoLeigo:
-      "Se voce tem escapes ou medo de acidentes, vale investigar a causa para recuperar seguranca no dia a dia.",
+      "Se você tem escapes ou medo de acidentes, vale investigar a causa para recuperar segurança no dia a dia.",
     icone: "protection",
     sinais: [
+      { nivel: "Leve", texto: "Dificuldade para segurar gases ou fezes." },
       {
-        nivel: "Comum",
-        texto: "Dificuldade para segurar gases ou fezes.",
-      },
-      {
-        nivel: "Importante",
+        nivel: "Grave",
         texto: "Escape fecal em pequenas ou grandes quantidades.",
       },
       {
-        nivel: "Atencao",
-        texto: "Mudanca importante na rotina por medo de acidentes.",
+        nivel: "Atenção",
+        texto: "Mudança importante na rotina por medo de acidentes.",
       },
     ],
   },

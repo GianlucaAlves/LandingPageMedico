@@ -3,8 +3,8 @@
 import { useState } from "react";
 
 const navLinks = [
-  { href: "#hero", label: "Inicio" },
-  { href: "#tratamentos", label: "Condicoes" },
+  { href: "#hero", label: "Início" },
+  { href: "#tratamentos", label: "Condições" },
   { href: "#sobre", label: "Sobre" },
   { href: "#exames", label: "Exames" },
   { href: "#faq", label: "FAQ" },
@@ -19,11 +19,11 @@ export default function Navbar() {
       <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <a
           href="#hero"
-          className="flex flex-col leading-none text-[var(--foreground)]"
+          className="flex flex-col leading-none text-(--foreground)"
         >
           <span className="font-heading text-3xl">Dr. Daniel Alves</span>
-          <span className="mt-1 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--primary)]">
-            Clinico geral e proctologista
+          <span className="mt-1 text-xs font-semibold uppercase tracking-[0.28em] text-(--primary)">
+            Clínico geral e proctologista
           </span>
         </a>
 
@@ -32,14 +32,14 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-[var(--muted)] transition hover:text-[var(--primary)]"
+              className="text-sm font-medium text-(--muted) transition hover:text-(--primary)"
             >
               {link.label}
             </a>
           ))}
           <a
             href="#contato"
-            className="rounded-full bg-[var(--cta)] px-5 py-2.5 text-sm font-semibold text-white transition hover:brightness-105"
+            className="rounded-full bg-(--cta) px-5 py-2.5 text-sm font-semibold text-white transition hover:brightness-105"
           >
             Agendar consulta
           </a>
@@ -47,7 +47,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border)] text-[var(--foreground)] md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-(--border) text-(--foreground) md:hidden"
           aria-label="Abrir menu"
           aria-expanded={isOpen}
           onClick={() => setIsOpen((value) => !value)}
@@ -62,13 +62,13 @@ export default function Navbar() {
       </nav>
 
       {isOpen ? (
-        <div className="border-t border-[var(--border)] bg-[var(--surface)] md:hidden">
+        <div className="border-t border-(--border) bg-(--surface) md:hidden">
           <div className="mx-auto flex max-w-7xl flex-col px-4 py-4 sm:px-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-xl px-3 py-3 text-sm font-medium text-[var(--foreground)] transition hover:bg-[rgba(143,175,163,0.14)] hover:text-[var(--primary)]"
+                className="rounded-xl px-3 py-3 text-sm font-medium text-(--foreground) transition hover:bg-[rgba(143,175,163,0.14)] hover:text-(--primary)"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}

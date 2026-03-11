@@ -1,12 +1,12 @@
 import SectionHeader from "@/components/shared/SectionHeader";
 
 const sinais = [
-  "Sangramento ao evacuar ou presenca de sangue nas fezes.",
+  "Sangramento ao evacuar ou presença de sangue nas fezes.",
   "Dor anal persistente, ardor ou dificuldade para evacuar.",
-  "Mudanca no habito intestinal por mais de duas semanas.",
-  "Sensacao de caroço, inchaco ou secrecao na regiao anal.",
-  "Perda de peso, anemia ou cansaco associado a sintomas intestinais.",
-  "Historia familiar de doencas intestinais ou cancer colorretal.",
+  "Mudança no hábito intestinal por mais de duas semanas.",
+  "Sensação de caroço, inchaço ou secreção na região anal.",
+  "Perda de peso, anemia ou cansaço associado a sintomas intestinais.",
+  "História familiar de doenças intestinais ou câncer colorretal.",
 ];
 
 export default function SinaisAlerta() {
@@ -15,8 +15,8 @@ export default function SinaisAlerta() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Quando procurar ajuda"
-          title="Sinais de alerta que merecem avaliacao clinica e proctologica."
-          description="Nem todo sintoma e grave, mas ignorar sinais persistentes atrasa o diagnostico e pode piorar o tratamento."
+          title="Sinais de alerta que merecem avaliação clínica e proctológica."
+          description="Nem todo sintoma é grave, mas ignorar sinais persistentes atrasa o diagnóstico e pode piorar o tratamento."
         />
 
         <div className="mt-10 grid gap-4 lg:grid-cols-2">

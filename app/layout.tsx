@@ -20,12 +20,12 @@ const bodyFont = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Dr. Daniel Alves | Clinico geral e proctologista em Jacarei-SP",
+  title: "Dr. Daniel Alves | Clínico geral e proctologista em Jacareí-SP",
   description:
-    "Landing page profissional para consultas em clinica geral e proctologia, exames e tratamentos com atendimento acolhedor em Jacarei-SP.",
+    "Landing page profissional para consultas em clínica geral e proctologia, exames e tratamentos com atendimento acolhedor em Jacareí-SP.",
   keywords: [
-    "proctologista em Jacarei",
-    "clinico geral em Jacarei",
+    "proctologista em Jacareí",
+    "clínico geral em Jacareí",
     "proctologia",
     "hemorroida",
     "fissura anal",
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
     "cirurgia geral",
   ],
   openGraph: {
-    title: "Dr. Daniel Alves | Clinico geral e proctologista em Jacarei-SP",
+    title: "Dr. Daniel Alves | Clínico geral e proctologista em Jacareí-SP",
     description:
-      "Consultas em clinica geral e proctologia, exames e tratamentos com foco em acolhimento, diagnostico preciso e acompanhamento especializado.",
+      "Consultas em clínica geral e proctologia, exames e tratamentos com foco em acolhimento, diagnóstico preciso e acompanhamento especializado.",
     type: "website",
     locale: "pt_BR",
   },
@@ -60,7 +60,7 @@ export default function RootLayout({
           />
         ))}
       </head>
-      <body className="bg-[var(--background)] font-body text-[var(--foreground)] antialiased">
+      <body className="bg-(--background) font-body text-(--foreground) antialiased">
         <Navbar />
         {children}
         <WhatsAppButton />
