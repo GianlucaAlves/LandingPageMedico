@@ -15,7 +15,7 @@ export const faqCategories: {
 }[] = [
   {
     id: "consulta",
-    chip: "Consulta",
+    chip: "Primeira consulta",
     title: "Antes da consulta",
     icon: "conversation",
     description:
@@ -23,8 +23,8 @@ export const faqCategories: {
   },
   {
     id: "sintomas",
-    chip: "Sintomas",
-    title: "Durante a avaliacao",
+    chip: "Sintomas e sinais",
+    title: "Sintomas e sinais",
     icon: "privacy",
     description: "O que costuma ser investigado e como a consulta acontece.",
   },
@@ -37,7 +37,7 @@ export const faqCategories: {
   },
   {
     id: "tratamentos",
-    chip: "Tratamentos",
+    chip: "Tratamento e recuperacao",
     title: "Tratamentos e recuperacao",
     icon: "check",
     description: "As proximas etapas depois que o quadro e identificado.",
@@ -49,7 +49,7 @@ export const faq: FaqItem[] = [
     categoria: "consulta",
     pergunta: "O que levar para a primeira consulta?",
     resposta:
-      "Leve exames anteriores, relacao de medicamentos em uso e anote quando os sintomas comecaram, o que piora e o que alivia o desconforto.",
+      "Leve exames anteriores, a lista de remedios em uso e anote quando os sintomas comecaram, o que piora e o que melhora o desconforto.",
   },
   {
     categoria: "consulta",
@@ -59,7 +59,7 @@ export const faq: FaqItem[] = [
   },
   {
     categoria: "sintomas",
-    pergunta: "Quando um sintoma intestinal merece investigacao?",
+    pergunta: "Quando um sintoma merece investigacao?",
     resposta:
       "Sangramento, dor ao evacuar, mudanca persistente no habito intestinal, secrecao anal ou perda de peso sem explicacao sao sinais que merecem avaliacao.",
   },
@@ -71,7 +71,7 @@ export const faq: FaqItem[] = [
   },
   {
     categoria: "exames",
-    pergunta: "Todo paciente precisa fazer exame proctologico no primeiro dia?",
+    pergunta: "Todo paciente precisa fazer exame no primeiro dia?",
     resposta:
       "Nao. A indicacao depende dos sintomas, do historico e da necessidade real. Quando um exame e recomendado, tudo e explicado antes.",
   },
