@@ -108,11 +108,11 @@ export default function FAQ() {
             id={`faq-panel-${activeGroup.id}`}
             role="tabpanel"
             aria-labelledby={`faq-tab-${activeGroup.id}`}
-            className="mt-10 overflow-hidden rounded-4xl border border-(--border) bg-(--background) shadow-[0_18px_42px_rgba(36,50,58,0.06)]"
+            className="mt-10"
           >
-            <div className="border-b border-(--border) bg-[rgba(143,175,163,0.08)] px-6 py-6 sm:px-8">
+            <div className="border-b border-(--border) pb-6">
               <div className="flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-[rgba(94,124,138,0.18)] bg-[rgba(143,175,163,0.14)] text-(--primary)">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[rgba(143,175,163,0.14)] text-(--primary)">
                   <CategoryIcon icon={activeGroup.icon} />
                 </div>
                 <div>
@@ -122,14 +122,14 @@ export default function FAQ() {
                   <h3 className="mt-2 text-2xl font-semibold text-(--foreground)">
                     {activeGroup.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-7 text-(--muted)">
+                  <p className="mt-2 max-w-3xl text-sm leading-7 text-(--muted)">
                     {activeGroup.description}
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="space-y-3 px-4 py-4 sm:px-6 sm:py-6">
+            <div className="divide-y divide-(--border)">
               {activeGroup.items.map((item) => {
                 const isOpen = activeQuestion === item.pergunta;
                 const slug = toSlug(item.pergunta);
@@ -137,21 +137,14 @@ export default function FAQ() {
                 const answerId = `faq-answer-${slug}`;
 
                 return (
-                  <div
-                    key={item.pergunta}
-                    className={`overflow-hidden rounded-[1.6rem] border transition duration-300 ${
-                      isOpen
-                        ? "border-(--secondary) bg-(--surface) shadow-[0_18px_36px_rgba(94,124,138,0.12)]"
-                        : "border-(--border) bg-(--surface)"
-                    }`}
-                  >
+                  <div key={item.pergunta} className="py-2">
                     <button
                       id={questionId}
                       type="button"
                       aria-expanded={isOpen}
                       aria-controls={answerId}
                       onClick={() => setOpenQuestion(item.pergunta)}
-                      className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--cta) focus-visible:ring-inset"
+                      className="flex w-full items-center justify-between gap-4 px-1 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--cta) focus-visible:ring-inset"
                     >
                       <span className="text-base font-semibold text-(--foreground) sm:text-lg">
                         {item.pergunta}
@@ -177,12 +170,12 @@ export default function FAQ() {
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <div className="border-t border-(--border) px-5 py-5">
-                          <p className="text-base leading-7 text-(--muted)">
+                        <div className="px-1 pb-5">
+                          <p className="max-w-3xl text-base leading-7 text-(--muted)">
                             {item.resposta}
                           </p>
 
-                          <div className="mt-5 flex flex-col gap-4 rounded-2xl bg-[rgba(143,175,163,0.12)] px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
+                          <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                             <p className="text-sm font-medium text-(--foreground)">
                               Ainda com duvida sobre este caso? Agende sua
                               avaliacao.

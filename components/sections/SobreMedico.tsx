@@ -5,14 +5,14 @@ import { medico } from "@/data/medico";
 
 export default function SobreMedico() {
   return (
-    <section id="sobre" className="bg-[var(--background)] py-20 sm:py-24">
+    <section id="sobre" className="bg-(--background) py-20 sm:py-24">
       <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
         <div className="relative">
           <div className="absolute -left-6 top-10 hidden h-40 w-40 rounded-full bg-[rgba(143,175,163,0.22)] blur-3xl lg:block" />
           <div className="absolute -bottom-6 right-4 hidden h-32 w-32 rounded-full bg-[rgba(201,169,138,0.18)] blur-3xl lg:block" />
 
           <div className="relative overflow-hidden rounded-[2.5rem] shadow-[0_28px_80px_rgba(15,23,42,0.08)]">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] bg-[var(--surface)]">
+            <div className="relative aspect-4/5 overflow-hidden rounded-[2.5rem] bg-(--surface)">
               <Image
                 src={medico.sobreFoto}
                 alt={`Foto de ${medico.nome}`}
@@ -39,17 +39,17 @@ export default function SobreMedico() {
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {medico.credenciais.map((credencial) => (
-              <div
-                key={credencial}
-                className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-5 py-4 text-sm font-medium text-[var(--foreground)]"
-              >
-                {credencial}
+              <div key={credencial} className="flex items-start gap-3">
+                <span className="mt-2 h-2 w-2 rounded-full bg-(--accent)" />
+                <p className="text-sm font-medium text-(--foreground)">
+                  {credencial}
+                </p>
               </div>
             ))}
           </div>
 
-          <div className="mt-8 rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[0_18px_40px_rgba(36,50,58,0.05)]">
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--primary)]">
+          <div className="mt-8 border-t border-(--border) pt-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-(--primary)">
               Formacao e atuacao
             </p>
             <div className="mt-5 space-y-4">
@@ -58,12 +58,12 @@ export default function SobreMedico() {
                   key={`${item.periodo}-${item.titulo}`}
                   className="flex gap-4"
                 >
-                  <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[var(--accent)]" />
+                  <span className="mt-2 h-2.5 w-2.5 rounded-full bg-(--accent)" />
                   <div>
-                    <p className="text-sm font-semibold text-[var(--foreground)]">
+                    <p className="text-sm font-semibold text-(--foreground)">
                       {item.titulo}
                     </p>
-                    <p className="mt-1 text-sm text-[var(--muted)]">
+                    <p className="mt-1 text-sm text-(--muted)">
                       {item.instituicao}
                     </p>
                   </div>
@@ -73,10 +73,10 @@ export default function SobreMedico() {
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <span className="rounded-full bg-[var(--surface)] px-4 py-2 text-sm font-semibold text-[var(--foreground)] shadow-sm">
+            <span className="rounded-full bg-(--surface) px-4 py-2 text-sm font-semibold text-(--foreground) shadow-sm">
               CRM {medico.crm}
             </span>
-            <span className="rounded-full bg-[rgba(143,175,163,0.12)] px-4 py-2 text-sm font-semibold text-[var(--primary)]">
+            <span className="rounded-full bg-[rgba(143,175,163,0.12)] px-4 py-2 text-sm font-semibold text-(--primary)">
               Atendimento em {medico.cidade}
             </span>
           </div>
