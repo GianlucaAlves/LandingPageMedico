@@ -98,3 +98,4 @@ O projeto está publicado em:
 ## Licença
 
 Este projeto é apenas para fins educacionais/demonstração. Consulte o autor para uso comercial.
+
